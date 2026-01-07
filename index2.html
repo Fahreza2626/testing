@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Saya</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom warna dari palet -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#000000',       // Hitam
+            secondary: '#29EAFF',     // Biru cyan
+            accent: '#5FCFCA',        // Mint/turquoise
+            highlight: '#FAEB92',     // Kuning pastel
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .glow {
+      box-shadow: 0 0 15px rgba(41, 234, 255, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-primary text-white">
+  <!-- Header -->
+  <header class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
+    <div>
+      <h1 class="text-4xl font-bold">Halo, Saya <span class="text-secondary">Nama Anda</span></h1>
+      <p class="mt-3 text-highlight text-lg">Web Developer & UI Designer</p>
+      <p class="mt-4 max-w-lg text-gray-300">
+        Saya membuat pengalaman digital yang indah dan fungsional dengan teknologi terkini.
+      </p>
+      <div class="mt-6 flex space-x-4">
+        <a href="#projects" class="px-6 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-accent transition">Lihat Karya</a>
+        <a href="#contact" class="px-6 py-2 border border-secondary text-secondary font-medium rounded-lg hover:bg-secondary hover:text-primary transition">Kontak Saya</a>
+      </div>
+    </div>
+    <div class="mt-8 md:mt-0">
+      <!-- Placeholder avatar -->
+      <div class="w-64 h-64 rounded-full bg-accent flex items-center justify-center glow">
+        <span class="text-5xl font-bold text-primary">NS</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Karya Terbaru</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project card example -->
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
+        <div class="h-40 bg-accent rounded-lg mb-4"></div>
+        <h3 class="text-xl font-semibold">Aplikasi Manajemen Tugas</h3>
+        <p class="mt-2 text-gray-400">React + Firebase</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
+        <div class="h-40 bg-highlight rounded-lg mb-4"></div>
+        <h3 class="text-xl font-semibold">Landing Page E-commerce</h3>
+        <p class="mt-2 text-gray-400">HTML, Tailwind, JavaScript</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
+        <div class="h-40 bg-secondary rounded-lg mb-4"></div>
+        <h3 class="text-xl font-semibold">Dashboard Admin</h3>
+        <p class="mt-2 text-gray-400">Vue.js + Chart.js</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Mari Berkolaborasi!</h2>
+    <div class="max-w-lg mx-auto">
+      <form class="space-y-6">
+        <input type="text" placeholder="Nama Anda" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary" />
+        <input type="email" placeholder="Email Anda" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary" />
+        <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
+        <button type="submit" class="w-full py-3 bg-secondary text-primary font-medium rounded-lg hover:bg-accent transition">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-500 border-t border-gray-800">
+    <p>© 2026 Nama Anda. Dibuat dengan 💙 menggunakan palet warna dari <a href="https://colorhunt.co/palette/0000009929eaff5fcffaeb92" target="_blank" class="text-secondary hover:underline">Color Hunt</a>.</p>
+  </footer>
+</body>
+</html>
