@@ -1,97 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portofolio Saya</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom warna dari palet -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#000000',       // Hitam
-            secondary: '#29EAFF',     // Biru cyan
-            accent: '#5FCFCA',        // Mint/turquoise
-            highlight: '#FAEB92',     // Kuning pastel
-          }
-        }
-      }
-    }
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Dynand Fahreza Fauzy</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
-    body {
-      font-family: 'Inter', sans-serif;
+    :root {
+      --navy-dark: #0A1A2F;
+      --navy-soft: #1B3B63;
+      --cream-main: #F5F1E8;
+      --cream-soft: #EDE7DB;
+      --accent: #4DA3FF;
     }
-    .glow {
-      box-shadow: 0 0 15px rgba(41, 234, 255, 0.6);
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--navy-dark);
+      color: var(--cream-main);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 90px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245,241,232,0.12);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+
+    /* FOTO + PUTIH DI BELAKANG */
+    .hero-img-wrapper {
+      position: relative;
+      display: inline-block;
+      justify-self: end;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-img-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      background: rgba(245, 241, 232, 0.35);
+      filter: blur(18px);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    /* SECTION */
+    section {
+      margin-bottom: 80px;
+    }
+
+    section h2 {
+      font-size: 2.3rem;
+      margin-bottom: 16px;
+    }
+
+    section p {
+      max-width: 760px;
+      line-height: 1.9;
+      opacity: 0.9;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .skill-card {
+      background: rgba(245,241,232,0.08);
+      padding: 28px;
+      border-radius: 22px;
+      transition: 0.35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      background: rgba(245,241,232,0.14);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: linear-gradient(135deg, var(--cream-main), var(--cream-soft));
+      border-radius: 30px;
+      padding: 60px 40px;
+      text-align: center;
+      color: var(--navy-dark);
+    }
+
+    .contact h2 {
+      margin-bottom: 18px;
+      color: var(--navy-dark);
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      opacity: 0.85;
+      max-width: 520px;
+      margin-inline: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 36px;
+      background: var(--navy-dark);
+      color: var(--cream-main);
+      border-radius: 32px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--navy-soft);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 70px;
+      font-size: 0.85rem;
+      opacity: 0.65;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-img-wrapper {
+        justify-self: center;
+        margin-top: 40px;
+      }
     }
   </style>
 </head>
-<body class="bg-primary text-white">
-  <!-- Header -->
-  <header class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
-    <div>
-      <h1 class="text-4xl font-bold">Halo, Saya <span class="text-secondary">Nama Anda</span></h1>
-      <p class="mt-3 text-highlight text-lg">Web Developer & UI Designer</p>
-      <p class="mt-4 max-w-lg text-gray-300">
-        Saya membuat pengalaman digital yang indah dan fungsional dengan teknologi terkini.
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="badge">PORTFOLIO</div>
+        <h1>Halo, Saya <span>Dynand</span><br>Fahreza Fauzy</h1>
+        <p>
+          Siswa RPL SMK Telkom Malang yang berfokus pada Web Development
+          dan teknologi digital modern.
+        </p>
+      </div>
+
+      <!-- FOTO -->
+      <div class="hero-img-wrapper">
+        <div class="hero-img-bg"></div>
+        <img src="image.png" alt="Foto Dynand Fahreza Fauzy">
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya merupakan siswa SMK yang memiliki ketertarikan pada dunia teknologi dan digital. 
+        Saya terbiasa mengerjakan tugas dengan disiplin, aktif belajar, serta terbuka terhadap pengalaman baru. 
+        Portofolio ini dibuat sebagai bentuk dokumentasi kemampuan dan proses belajar saya.
       </p>
-      <div class="mt-6 flex space-x-4">
-        <a href="#projects" class="px-6 py-2 bg-secondary text-primary font-medium rounded-lg hover:bg-accent transition">Lihat Karya</a>
-        <a href="#contact" class="px-6 py-2 border border-secondary text-secondary font-medium rounded-lg hover:bg-secondary hover:text-primary transition">Kontak Saya</a>
-      </div>
-    </div>
-    <div class="mt-8 md:mt-0">
-      <!-- Placeholder avatar -->
-      <div class="w-64 h-64 rounded-full bg-accent flex items-center justify-center glow">
-        <span class="text-5xl font-bold text-primary">NS</span>
-      </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="container mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-12">Karya Terbaru</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project card example -->
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
-        <div class="h-40 bg-accent rounded-lg mb-4"></div>
-        <h3 class="text-xl font-semibold">Aplikasi Manajemen Tugas</h3>
-        <p class="mt-2 text-gray-400">React + Firebase</p>
+    <!-- SKILLS -->
+    <section>
+      <h2>Keahlian</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Web Development</h3>
+          <p>HTML, CSS, dan JavaScript dasar.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <p>Java dasar dan logika pemrograman.</p>
+        </div>
+        <div class="skill-card">
+          <h3>IoT Concept</h3>
+          <p>Konsep IoT dan sistem otomatisasi.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Soft Skill</h3>
+          <p>Kerja tim, komunikasi, dan manajemen waktu.</p>
+        </div>
+         <div class="skill-card">
+          <h3>IoT Concept</h3>
+          <p>Konsep IoT dan sistem otomatisasi.</p>
+        </div> 
       </div>
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
-        <div class="h-40 bg-highlight rounded-lg mb-4"></div>
-        <h3 class="text-xl font-semibold">Landing Page E-commerce</h3>
-        <p class="mt-2 text-gray-400">HTML, Tailwind, JavaScript</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-secondary transition">
-        <div class="h-40 bg-secondary rounded-lg mb-4"></div>
-        <h3 class="text-xl font-semibold">Dashboard Admin</h3>
-        <p class="mt-2 text-gray-400">Vue.js + Chart.js</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="container mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-8">Mari Berkolaborasi!</h2>
-    <div class="max-w-lg mx-auto">
-      <form class="space-y-6">
-        <input type="text" placeholder="Nama Anda" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary" />
-        <input type="email" placeholder="Email Anda" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary" />
-        <textarea placeholder="Pesan Anda" rows="4" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary"></textarea>
-        <button type="submit" class="w-full py-3 bg-secondary text-primary font-medium rounded-lg hover:bg-accent transition">Kirim Pesan</button>
-      </form>
-    </div>
-  </section>
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2>Hubungi Saya</h2>
+      <p>
+        Tertarik bekerja sama, proyek, atau diskusi?
+        Silakan hubungi saya.
+      </p>
+      <a href="#" class="btn">WhatsApp / Email</a>
+    </section>
 
-  <!-- Footer -->
-  <footer class="py-8 text-center text-gray-500 border-t border-gray-800">
-    <p>© 2026 Nama Anda. Dibuat dengan 💙 menggunakan palet warna dari <a href="https://colorhunt.co/palette/0000009929eaff5fcffaeb92" target="_blank" class="text-secondary hover:underline">Color Hunt</a>.</p>
-  </footer>
+    <footer>© 2026 Dynand Fahreza Fauzy | Portfolio</footer>
+
+  </div>
+
 </body>
 </html>
