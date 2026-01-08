@@ -1,267 +1,203 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Dynand Fahreza Fauzy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Pribadi</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    :root {
-      --navy-dark: #0A1A2F;
-      --navy-soft: #1B3B63;
-      --cream-main: #F5F1E8;
-      --cream-soft: #EDE7DB;
-      --accent: #4DA3FF;
-    }
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9929EA',
+                        secondary: '#FF5FCF',
+                        accent: '#FAEB92',
+                    }
+                }
+            }
+        }
+    </script>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Outfit', sans-serif;
-    }
+    <!-- Font & Custom Style -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    body {
-      background: var(--navy-dark);
-      color: var(--cream-main);
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+        .gradient-text {
+            background: linear-gradient(135deg, #9929EA, #FF5FCF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 50px;
-      align-items: center;
-      margin-bottom: 90px;
-    }
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(153, 41, 234, 0.5);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
 
-    .badge {
-      display: inline-block;
-      background: rgba(245,241,232,0.12);
-      padding: 8px 20px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      margin-bottom: 18px;
-    }
+        .card-hover:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
 
-    .hero h1 {
-      font-size: 3.4rem;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
 
-    .hero span {
-      color: var(--accent);
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      opacity: 0.85;
-    }
-
-    /* FOTO + PUTIH DI BELAKANG */
-    .hero-img-wrapper {
-      position: relative;
-      display: inline-block;
-      justify-self: end;
-    }
-
-    .hero-img-wrapper img {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 28px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-img-bg {
-      position: absolute;
-      inset: 0;
-      border-radius: 28px;
-      background: rgba(245, 241, 232, 0.35);
-      filter: blur(18px);
-      transform: scale(1.05);
-      z-index: 1;
-    }
-
-    /* SECTION */
-    section {
-      margin-bottom: 80px;
-    }
-
-    section h2 {
-      font-size: 2.3rem;
-      margin-bottom: 16px;
-    }
-
-    section p {
-      max-width: 760px;
-      line-height: 1.9;
-      opacity: 0.9;
-    }
-
-    /* SKILLS */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 26px;
-      margin-top: 34px;
-    }
-
-    .skill-card {
-      background: rgba(245,241,232,0.08);
-      padding: 28px;
-      border-radius: 22px;
-      transition: 0.35s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-8px);
-      background: rgba(245,241,232,0.14);
-    }
-
-    .skill-card h3 {
-      margin-bottom: 12px;
-      color: var(--accent);
-    }
-
-    /* CONTACT */
-    .contact {
-      background: linear-gradient(135deg, var(--cream-main), var(--cream-soft));
-      border-radius: 30px;
-      padding: 60px 40px;
-      text-align: center;
-      color: var(--navy-dark);
-    }
-
-    .contact h2 {
-      margin-bottom: 18px;
-      color: var(--navy-dark);
-    }
-
-    .contact p {
-      margin-bottom: 30px;
-      opacity: 0.85;
-      max-width: 520px;
-      margin-inline: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 36px;
-      background: var(--navy-dark);
-      color: var(--cream-main);
-      border-radius: 32px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: var(--navy-soft);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 70px;
-      font-size: 0.85rem;
-      opacity: 0.65;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-img-wrapper {
-        justify-self: center;
-        margin-top: 40px;
-      }
-    }
-  </style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
-<body>
 
-  <div class="container">
+<body class="bg-black text-white">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div>
-        <div class="badge">PORTFOLIO</div>
-        <h1>Halo, Saya <span>Dynand</span><br>Fahreza Fauzy</h1>
-        <p>
-          Siswa RPL SMK Telkom Malang yang berfokus pada Web Development
-          dan teknologi digital modern.
-        </p>
-      </div>
-
-      <!-- FOTO -->
-      <div class="hero-img-wrapper">
-        <div class="hero-img-bg"></div>
-        <img src="image.png" alt="Foto Dynand Fahreza Fauzy">
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section>
-      <h2>Tentang Saya</h2>
-      <p>
-        Saya merupakan siswa SMK yang memiliki ketertarikan pada dunia teknologi dan digital. 
-        Saya terbiasa mengerjakan tugas dengan disiplin, aktif belajar, serta terbuka terhadap pengalaman baru. 
-        Portofolio ini dibuat sebagai bentuk dokumentasi kemampuan dan proses belajar saya.
-      </p>
-    </section>
-
-    <!-- SKILLS -->
-    <section>
-      <h2>Keahlian</h2>
-      <div class="skills">
-        <div class="skill-card">
-          <h3>Web Development</h3>
-          <p>HTML, CSS, dan JavaScript dasar.</p>
+<!-- NAVBAR -->
+<nav class="fixed w-full bg-black/80 backdrop-blur-md z-50 border-b border-primary/20">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text">MyPortfolio</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="hover:text-primary">Beranda</a>
+            <a href="#about" class="hover:text-primary">Tentang</a>
+            <a href="#projects" class="hover:text-primary">Proyek</a>
+            <a href="#skills" class="hover:text-primary">Keahlian</a>
+            <a href="#contact" class="hover:text-primary">Kontak</a>
         </div>
-        <div class="skill-card">
-          <h3>Programming</h3>
-          <p>Java dasar dan logika pemrograman.</p>
-        </div>
-        <div class="skill-card">
-          <h3>IoT Concept</h3>
-          <p>Konsep IoT dan sistem otomatisasi.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Soft Skill</h3>
-          <p>Kerja tim, komunikasi, dan manajemen waktu.</p>
-        </div>
-         <div class="skill-card">
-          <h3>IoT Concept</h3>
-          <p>Konsep IoT dan sistem otomatisasi.</p>
-        </div> 
-      </div>
-    </section>
+    </div>
+</nav>
 
-    <!-- CONTACT -->
-    <section class="contact">`
-      <h2>Hubungi Saya</h2>
-      <p>
-        Tertarik bekerja sama, proyek, atau diskusi?
-        Silakan hubungi saya.
-      </p>
-      <a href="#" class="btn">WhatsApp / Email</a>
-    </section>
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center pt-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-black to-secondary/10"></div>
 
-    <footer>© 2026 Dynand Fahreza Fauzy | Portfolio</footer>
+    <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 text-center md:text-left">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                Halo, Saya <span class="gradient-text">Dynand Fahreza Fauzy</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6">
+                Siswa RPL | Web Developer
+            </p>
+            <p class="text-gray-400 mb-8 max-w-lg">
+                Fokus mempelajari web development dan UI/UX design menggunakan teknologi modern.
+            </p>
+            <div class="flex gap-4 justify-center md:justify-start">
+                <a href="#projects" class="bg-gradient-to-r from-primary to-secondary px-8 py-3 rounded-full hover-glow">
+                    Lihat Proyek
+                </a>
+                <a href="#contact" class="border-2 border-primary px-8 py-3 rounded-full hover:bg-primary transition">
+                    Hubungi Saya
+                </a>
+            </div>
+        </div>
 
-  </div>
+        <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+            <div class="animate-float">
+                <div class="w-72 h-72 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
+                    <div class="w-full h-full bg-black rounded-full overflow-hidden">
+                        <img src="image.png" alt="Foto Dynand" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-gradient-to-b from-black to-primary/5">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-10 gradient-text">Tentang Saya</h2>
+        <div class="max-w-3xl mx-auto bg-white/5 p-8 rounded-2xl border border-primary/20">
+            <p class="text-gray-300 leading-relaxed">
+                Saya adalah siswa SMK jurusan RPL yang memiliki minat di bidang web development,
+                UI/UX design, dan teknologi digital. Saya terus belajar dan mengembangkan kemampuan
+                melalui proyek dan latihan mandiri.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Proyek</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white/5 p-6 rounded-2xl border border-primary/20 card-hover">
+                <h3 class="text-xl font-bold text-accent mb-2">Website Portfolio</h3>
+                <p class="text-gray-400">Website pribadi menggunakan HTML, Tailwind CSS.</p>
+            </div>
+
+            <div class="bg-white/5 p-6 rounded-2xl border border-primary/20 card-hover">
+                <h3 class="text-xl font-bold text-accent mb-2">UI Design</h3>
+                <p class="text-gray-400">Desain UI aplikasi menggunakan Figma.</p>
+            </div>
+
+            <div class="bg-white/5 p-6 rounded-2xl border border-primary/20 card-hover">
+                <h3 class="text-xl font-bold text-accent mb-2">Mini App</h3>
+                <p class="text-gray-400">Aplikasi web sederhana berbasis JavaScript.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-20 bg-gradient-to-b from-black to-primary/5">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Keahlian</h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div class="bg-white/5 p-6 rounded-xl text-center hover-glow">HTML & CSS</div>
+            <div class="bg-white/5 p-6 rounded-xl text-center hover-glow">Tailwind CSS</div>
+            <div class="bg-white/5 p-6 rounded-xl text-center hover-glow">JavaScript</div>
+            <div class="bg-white/5 p-6 rounded-xl text-center hover-glow">UI / UX</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-10 gradient-text">Hubungi Saya</h2>
+
+        <form class="max-w-xl mx-auto bg-white/5 p-8 rounded-2xl border border-primary/20">
+            <input type="text" placeholder="Nama"
+                class="w-full mb-4 px-4 py-3 bg-white/10 rounded-lg text-white outline-none">
+            <input type="email" placeholder="Email"
+                class="w-full mb-4 px-4 py-3 bg-white/10 rounded-lg text-white outline-none">
+            <textarea rows="4" placeholder="Pesan"
+                class="w-full mb-6 px-4 py-3 bg-white/10 rounded-lg text-white outline-none"></textarea>
+            <button class="w-full bg-gradient-to-r from-primary to-secondary py-3 rounded-full hover-glow">
+                Kirim
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center text-gray-400 border-t border-primary/20">
+    © 2026 Dynand Fahreza Fauzy
+</footer>
+
+<!-- SMOOTH SCROLL -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
 
 </body>
 </html>
