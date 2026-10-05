@@ -281,6 +281,13 @@ section > p {
     line-height: 1.7;
 }
 
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 /* =============================================
    TOMBOL — efek hover dengan glow dan gerak naik
    ============================================= */
